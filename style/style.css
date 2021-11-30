@@ -1,0 +1,86 @@
+body {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
+
+.library {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+}
+
+.book {
+    background-color: rgb(236, 234, 234);
+    padding: 30px;
+    width: 500px;
+
+}
+
+.reading {
+    width: 700px;
+    background-color: rgb(161, 161, 161);
+    padding: 30px;
+}
+.add {
+    margin-top: 10px;
+}
+
+.addendum__block {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: white;
+}
+
+
+.addendum__form-write {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+
+}
+
+.addendum__names-write {
+    margin-top: 10px;
+    width: 98%;
+}
+.addendum__text-write {
+    margin-top: 10px;
+    min-height: 120px;
+    resize: vertical;
+    padding: 20px;
+}
+.addendum__add {
+    display: block;
+}
+.addendum__write {
+    display: block;
+}
+
+
+.addendum__form-add {
+    margin-top: 10px;
+}
+.addendim__file-add {
+    margin-top: 10px;
+}
+
+.addendom-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 3px;
+}
+
+/* Tabs */
+
+.tabs__content.active_content {
+    display: block;
+}
+.tabs__content {
+    display: none;
+
+}

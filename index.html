@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="library">
+        <div class="book">
+            <div class="favorite">
+                <h3>Любимые книги</h3>
+            </div>
+            <div class="list">
+                <h3>Список книг</h3>
+            </div>
+            <div class="addendum">
+                <h3>Добавить книгу</h3>
+                <div class="addendum__block">
+                    <div class="addendum__add">
+                        <input type="radio" name="book" data-tab="#tab_1" checked class="addendum__add-input  addendum__tab active">
+                        <label>Загрузить книгу</label>
+                    </div>
+                    <div class="addendum__write">
+                        <input type="radio" name="book" data-tab="#tab_2" class="addendum__write-input addendum__tab">
+                        <label>Написать самому</label>
+                    </div>
+                    <!-- form ADD -->
+                    <form class="addendum__form-add tabs__content active_content" id="tab_1" action="#">
+                        <input type="text" class="addendum__names-add" value="Название...">
+                        <input type="file" accept=".txt" id="#form__add" name="text" class="addendim__file-add">
+                        <button class="addendom-btn">Добавить</button>
+                    </form>
+                    <!-- / ADD -->
+                    <!-- form WRITE -->
+                    <form action="https://apiinterns.osora.ru/" method="POST" class="addendum__form-write tabs__content" id="tab_2" >
+                        <input class="addendum__names-write" login="login" type="text" value="Название...">
+                        <textarea class="addendum__text-write" file="file" id="" cols="55" rows="5"></textarea>
+                        <input type="submit" value="Добавить" class="addendom-btn">
+                    </form>
+                    <!-- / WRITE -->
+                </div>
+                </div>
+        </div>
+        <div class="reading">
+            <div class="text">
+
+            </div>
+        </div>
+    </div>
+    <script src="script/script.js"></script>
+</body>
+</html>
