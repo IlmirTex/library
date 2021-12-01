@@ -1,4 +1,4 @@
-
+// TABS
 const tabBtn = document.querySelectorAll(".addendum__tab");
 const tabsItems = document.querySelectorAll(".tabs__content");
 
@@ -19,18 +19,35 @@ tabBtn.forEach(function(item){
     })
 })
 })
+//
+
+// POST
+
+const sendData = async(url, data) => {
+  const response  = await fetch(url, {
+    method : 'POST',
+    body : data,
+  })
+  return await response.json();
+};
+
+const sendCart = () => {
+
+  const cartForm = document.querySelector('.addendum__form-write');
+
+  cartForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+  const formData = new FormData(cartForm);
+    sendData('https://apiinterns.osora.ru/', formData)
+    .then(() => {
+      cartForm.reset();
+    });
+
+  })
+};
+
+sendCart();
 
 
-// const formText = document.getElementById('form__add');
-
-// formText.addEventListener('change', () => {
-//   uploadFile(formText.files[0]);
-// });
-
-
-
-// function uploadFile(file) {
-//   if (!['s/txt'].includes(file.type)){
-//     alert('Разрешены только текстовые документы');
-//   };
-// }
+//
