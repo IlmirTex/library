@@ -29,25 +29,69 @@ const sendData = async(url, data) => {
     body : data,
   })
   return await response.json();
+  
+  
 };
 
 const sendCart = () => {
 
-  const cartForm = document.querySelector('.addendum__form-write');
+  const cartForm = document.querySelector('.addendum__form-add');
 
-  cartForm.addEventListener('submit', e => {
+
+  cartForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-  const formData = new FormData(cartForm);
+    const bookName = document.querySelector('.addendum__names-add');
+
+    const formData = new FormData(cartForm);
+
+
     sendData('https://apiinterns.osora.ru/', formData)
-    .then(() => {
-      cartForm.reset();
+    .then((data) => {
+       console.log(decodeURIComponent(escape(data.text)))
+       setToLocalStorage(data, bookName.value);
+       cartForm.reset();
+
     });
 
   })
 };
+const setToLocalStorage = (data, bookName) => {
+  if (!localStorage.getItem('books')){
+    localStorage.setItem('books', JSON.stringify({}));
+  }
+  const booksObject = JSON.parse(localStorage.getItem('books'));
+  booksObject[bookName] = decodeURIComponent(escape(data.text));
+  localStorage.setItem('books', JSON.stringify(booksObject));
+}
+
 
 sendCart();
 
-
 //
+
+
+const formWrite = document.querySelector('.addendum__form-write');
+
+
+
+
+formWrite.addEventListener('click',(e) => {
+  e.preventDefault();
+  const inputWrite = document.querySelector('.addendum__names-write');
+  const areaWrite = document.querySelector('.addendum__text-write')
+  
+  writeLocalStorage(inputWrite.value , areaWrite.value);
+
+})
+
+
+const writeLocalStorage = (title , text) => {
+  if (!localStorage.getItem('books')){
+    localStorage.setItem('books', JSON.stringify({}));
+  }
+  const booksObject = JSON.parse(localStorage.getItem('books'));
+  console.log(booksObject)
+  booksObject[title] = decodeURIComponent(escape(text));
+  localStorage.setItem('books',JSON.stringify(booksObject));
+}
