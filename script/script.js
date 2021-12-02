@@ -48,7 +48,6 @@ const sendCart = () => {
 
     sendData('https://apiinterns.osora.ru/', formData)
     .then((data) => {
-       console.log(decodeURIComponent(escape(data.text)))
        setToLocalStorage(data, bookName.value);
        cartForm.reset();
 
@@ -76,7 +75,7 @@ const formWrite = document.querySelector('.addendum__form-write');
 
 
 
-formWrite.addEventListener('click',(e) => {
+formWrite.addEventListener('submit',(e) => {
   e.preventDefault();
   const inputWrite = document.querySelector('.addendum__names-write');
   const areaWrite = document.querySelector('.addendum__text-write')
@@ -91,7 +90,6 @@ const writeLocalStorage = (title , text) => {
     localStorage.setItem('books', JSON.stringify({}));
   }
   const booksObject = JSON.parse(localStorage.getItem('books'));
-  console.log(booksObject)
   booksObject[title] = decodeURIComponent(escape(text));
   localStorage.setItem('books',JSON.stringify(booksObject));
 }
